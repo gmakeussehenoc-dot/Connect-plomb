@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Connect Plomb & Électricité | Songon - Bimbresso</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- En-tête -->
+    <header>
+        <div class="logo">Connect Plomb</div>
+        <nav>
+            <a href="#plomberie">Plomberie</a>
+            <a href="#electricite">Électricité</a>
+            <a href="#realisations">Réalisations</a>
+            <a href="#avis">Avis</a>
+        </nav>
+    </header>
+
+    <!-- Accueil -->
+    <section class="hero">
+        <h1>Connect Plomb & Électricité</h1>
+        <p>Vos experts en plomberie et électricité basés à <strong>Songon - Bimbresso (Carrefour La Forêt)</strong>. Intervention rapide, devis gratuit et satisfaction garantie.</p>
+        <div class="hero-buttons">
+            <!-- Remplace VOTRE_NUMERO_WHATSAPP par ton numéro avec l'indicatif (ex: 2250502820907) -->
+            <a href="https://wa.me/VOTRE_NUMERO_WHATSAPP" target="_blank" class="btn-wa">💬 WhatsApp Direct</a>
+            <a href="mailto:gmakeussehenoc@gmail.com" class="btn-mail">✉️ Email Direct</a>
+        </div>
+    </section>
+
+    <!-- Section Plomberie -->
+    <section id="plomberie" class="services-section">
+        <h2>🔧 Services de Plomberie</h2>
+        <div class="cards-container">
+            <div class="card" onclick="reserverService('Dépannage et fuites (Plomberie)')">
+                <h3>Dépannage & Fuites</h3>
+                <p>Détection et réparation rapide de fuites d'eau, tuyauterie cassée ou robinetterie usée.</p>
+                <button class="btn-card">Réserver ce service</button>
+            </div>
+            <div class="card" onclick="reserverService('Débouchement (Plomberie)')">
+                <h3>Débouchement</h3>
+                <p>Débouchement efficace de canalisations, évier, WC et lavabos bouchés.</p>
+                <button class="btn-card">Réserver ce service</button>
+            </div>
+            <div class="card" onclick="reserverService('Installation Sanitaire (Plomberie)')">
+                <h3>Installation Sanitaire</h3>
+                <p>Pose et remplacement de chauffe-eau, WC, douches, lavabos, baignoires et équipements sanitaires.</p>
+                <button class="btn-card">Réserver ce service</button>
+            </div>
+            <div class="card" onclick="reserverService('Installation complète (Plomberie)')">
+                <h3>Installation Complète</h3>
+                <p>Installation sur-mesure et complète du réseau de tuyauterie dans toute la maison.</p>
+                <button class="btn-card">Réserver ce service</button>
+            </div>
+            <div class="card" onclick="reserverService('Installation de Surpresseur (Plomberie)')">
+                <h3>Installation de Surpresseur</h3>
+                <p>Pose et réglage de surpresseurs pour garantir une excellente pression d'eau au quotidien.</p>
+                <button class="btn-card">Réserver ce service</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section Électricité -->
+    <section id="electricite" class="services-section bg-light">
+        <h2>⚡ Services d'Électricité</h2>
+        <div class="cards-container">
+            <div class="card" onclick="reserverService('Dépannage Électrique')">
+                <h3>Dépannage Électrique</h3>
+                <p>Remplacement de prises, interrupteurs, ampoules, disjoncteurs (DPN) et réparation de fils endommagés.</p>
+                <button class="btn-card">Réserver ce service</button>
+            </div>
+            <div class="card" onclick="reserverService('Tuyauterie et Saignée de Mur (Électricité)')">
+                <h3>Tuyauterie & Saignée de Mur</h3>
+                <p>Réalisation de saignées propres dans les murs et intégration de gaines de protection pour vos câbles électriques.</p>
+                <button class="btn-card">Réserver ce service</button>
+            </div>
+            <div class="card" onclick="reserverService('Tirage de Fil pour Connexion (Électricité)')">
+                <h3>Tirage de Fil & Câblage</h3>
+                <p>Passage et raccordement sécurisé de fils électriques pour alimentation, éclairage et équipements lourds.</p>
+                <button class="btn-card">Réserver ce service</button>
+            </div>
+            <div class="card" onclick="reserverService('Appareillage Électrique')">
+                <h3>Appareillage Électrique</h3>
+                <p>Pose, raccordement et mise aux normes de tableaux électriques, disjoncteurs, spots et appareillages modernes.</p>
+                <button class="btn-card">Réserver ce service</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Formulaire de Réservation -->
+    <section id="reservation" class="reservation-section">
+        <h2>📅 Réserver une Intervention</h2>
+        <p>Cliquez sur un service ci-dessus ou sélectionnez-en un ci-dessous.</p>
+
+        <!-- FormSubmit configuré avec ton adresse Gmail -->
+        <form id="bookingForm" action="https://formsubmit.co/gmakeussehenoc@gmail.com" method="POST" onsubmit="envoyerTout(event)">
+            <label for="service">Service Sélectionné :</label>
+            <input type="text" id="service" name="Service" readonly required placeholder="Sélectionnez un service au-dessus">
+
+            <label for="nom">Nom & Prénom :</label>
+            <input type="text" id="nom" name="Nom" required placeholder="Votre nom complet">
+
+            <label for="telephone">Numéro de Téléphone :</label>
+            <input type="tel" id="telephone" name="Telephone" required placeholder="Ex: 0708091011">
+
+            <label for="commune">Lieu d'habitation :</label>
+            <input type="text" id="commune" name="Lieu" value="Songon - Bimbresso (Carrefour La Forêt)" required>
+
+            <div class="date-time-group">
+                <div>
+                    <label for="date">Date souhaitée :</label>
+                    <input type="date" id="date" name="Date" required>
+                </div>
+                <div>
+                    <label for="heure">Heure du RDV :</label>
+                    <input type="time" id="heure" name="Heure" required>
+                </div>
+            </div>
+
+            <button type="submit" class="btn-submit">Valider et Envoyer (Gmail & WhatsApp)</button>
+        </form>
+    </section>
+
+    <!-- Galerie des Réalisations (Changer les noms d'images par tes photos) -->
+    <section id="realisations" class="social-section">
+        <h2>📸 Nos Réalisations sur le Terrain</h2>
+        <p>Aperçu de nos interventions à Songon - Bimbresso et ses environs.</p>
+        
+        <div class="social-grid">
+            <div class="social-card">
+                <!-- Remplace "photo1.jpg" par le nom de ta photo enregistrée sur ton téléphone -->
+                <img src="photo1.jpg" alt="Travaux de Plomberie" onerror="this.src='https://picsum.photos/400/300?random=1'">
+                <p><strong>Plomberie :</strong> Raccordement et pose de tuyauterie complète.</p>
+            </div>
+            <div class="social-card">
+                <img src="photo2.jpg" alt="Installation Électrique" onerror="this.src='https://picsum.photos/400/300?random=2'">
+                <p><strong>Électricité :</strong> Tirage de fil et pose d'appareillages.</p>
+            </div>
+            <div class="social-card">
+                <img src="photo3.jpg" alt="Dépannage Sanitaire" onerror="this.src='https://picsum.photos/400/300?random=3'">
+                <p><strong>Sanitaire :</strong> Pose de surpresseur d'eau et réglage.</p>
+            </div>
+        </div>
+        
+        <div class="social-links">
+            <p><em>Réseaux sociaux en cours de création...</em></p>
+        </div>
+    </section>
+
+    <!-- Section Avis Clients -->
+    <section id="avis" class="avis-section">
+        <h2>⭐ Laissez un Avis sur nos Services</h2>
+        
+        <div id="thankYouMessage" class="thank-you-msg">
+            🎉 Merci infiniment pour votre commentaire ! Votre satisfaction est notre priorité.
+        </div>
+
+        <form id="reviewForm" onsubmit="ajouterAvis(event)">
+            <input type="text" id="clientNom" placeholder="Votre Nom" required>
+            <select id="clientNote" required>
+                <option value="">Choisissez une note</option>
+                <option value="⭐⭐⭐⭐⭐ (5/5)">⭐⭐⭐⭐⭐ - Excellent</option>
+                <option value="⭐⭐⭐⭐ (4/5)">⭐⭐⭐⭐ - Très Bien</option>
+                <option value="⭐⭐⭐ (3/5)">⭐⭐⭐ - Moyen</option>
+            </select>
+            <textarea id="clientCommentaire" rows="3" placeholder="Votre avis sur notre intervention..." required></textarea>
+            <button type="submit" class="btn-avis">Publier mon avis</button>
+        </form>
+
+        <h3 style="margin-top: 30px;">Avis Récents</h3>
+        <div id="reviewsList" class="reviews-list">
+            <div class="review-item">
+                <strong>Client de Bimbresso</strong> <span>⭐⭐⭐⭐⭐</span>
+                <p>"Intervention très rapide pour le débouchement et la plomberie. Travail propre !"</p>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <p>&copy; 2026 Connect Plomb. Songon - Bimbresso (Carrefour La Forêt). Tous droits réservés.</p>
+    </footer>
+
+    <!-- Logique JavaScript -->
+    <script>
+        function reserverService(nomService) {
+            document.getElementById('service').value = nomService;
+            document.getElementById('reservation').scrollIntoView({ behavior: 'smooth' });
+        }
+
+        function envoyerTout(event) {
+            // Remplace VOTRE_NUMERO_WHATSAPP ci-dessous par ton numéro (ex: 2250700000000)
+            var numWhatsapp = "VOTRE_NUMERO_WHATSAPP"; 
+            var service = document.getElementById('service').value;
+            var nom = document.getElementById('nom').value;
+            var tel = document.getElementById('telephone').value;
+            var lieu = document.getElementById('commune').value;
+            var date = document.getElementById('date').value;
+            var heure = document.getElementById('heure').value;
+
+            var message = "Bonjour Connect Plomb, je souhaite réserver une intervention :\n\n" +
+                "🛠️ *Service :* " + service + "\n" +
+                "👤 *Nom :* " + nom + "\n" +
+                "📞 *Téléphone :* " + tel + "\n" +
+                "📍 *Lieu :* " + lieu + "\n" +
+                "📅 *Date :* " + date + "\n" +
+                "⏰ *Heure :* " + heure;
+
+            var urlWhatsapp = "https://wa.me/" + numWhatsapp + "?text=" + encodeURIComponent(message);
+            window.open(urlWhatsapp, '_blank');
+        }
+
+        function ajouterAvis(event) {
+            event.preventDefault();
+            var nom = document.getElementById('clientNom').value;
+            var note = document.getElementById('clientNote').value;
+            var com = document.getElementById('clientCommentaire').value;
+
+            var div = document.createElement('div');
+            div.className = 'review-item';
+            div.innerHTML = '<strong>' + nom + '</strong> <span>' + note + '</span><p>"' + com + '"</p>';
+
+            document.getElementById('reviewsList').prepend(div);
+            document.getElementById('thankYouMessage').style.display = 'block';
+            document.getElementById('reviewForm').reset();
+        }
+    </script>
+</body>
+</html>
